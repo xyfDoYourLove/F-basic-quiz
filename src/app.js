@@ -6,11 +6,13 @@ const desc = document.getElementById("desc");
 const avatar = document.getElementById("avatar");
 const container = document.getElementById("educations");
 const introText = document.getElementById("intro-text");
+let path;
+let data;
 let userId;
 
 const addUser = async () => {
-  const path = `/users`;
-  const data = {
+  path = `/users`;
+  data = {
     name: "ai lun xiao",
     age: 18,
     avatar: "http://m.imeitou.com/uploads/allimg/2019032114/kjfjfrxjnjj.jpg",
@@ -22,8 +24,19 @@ const addUser = async () => {
   userId = response.data;
 };
 
+const addEducation = async () => {
+  path = `/users/${userId}/educations`;
+  data = {
+    year: 2020,
+    title: "佛罗里达大学",
+    description:
+      "在佛罗里达大学取得了优异的成绩在佛罗里达大学取得了优异的成绩在佛罗里达大学取得了优异的成绩",
+  };
+  await postFunction(path, data);
+};
+
 const renderUserInfo = async () => {
-  const path = `/users/${userId}`;
+  path = `/users/${userId}`;
   const response = await getFunction(path);
   desc.innerHTML = `my name is ${response.data.name} and this is my resume/cv`;
   introText.innerHTML = response.data.description;
@@ -31,7 +44,7 @@ const renderUserInfo = async () => {
 };
 
 const renderEducations = async () => {
-  const path = `/users/${userId}/educations`;
+  path = `/users/${userId}/educations`;
   const response = await getFunction(path);
   Object.values(response.data).map((item) =>
     container.appendChild(
@@ -41,6 +54,8 @@ const renderEducations = async () => {
 };
 
 addUser().then(() => {
+  addEducation().then();
+  addEducation().then();
   renderUserInfo().then();
   renderEducations().then();
 });
