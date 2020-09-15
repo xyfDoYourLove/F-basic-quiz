@@ -8,4 +8,10 @@ function getFunction(path) {
   });
 }
 
-export default getFunction;
+function postFunction(path, data) {
+  return axios.post(`${baseUrl}${path}`, data).catch((error) => {
+    throw new Error(error);
+  });
+}
+
+export { getFunction, postFunction };
