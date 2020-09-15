@@ -1,3 +1,5 @@
+@import "variables";
+
 .header {
   display: flex;
   flex-direction: column;
@@ -9,19 +11,23 @@
 }
 
 .avatar {
-  width: 200px;
-  height: 200px;
-  border-radius: 60%;
+  width: $avatar-width;
+  border-radius: $avatar-border-radius;
+  margin-top: 3%;
 }
 
 .hello {
   font-weight: bolder;
   text-align: center;
-  margin: 20px 0 0 0;
+  margin: $margin-title-bottom 0 0 0;
 }
 .desc {
-  font-size: 26px;
+  font-size: $font-size-header;
   font-weight: bolder;
   text-align: center;
-  margin: 10px 0;
+  margin: $margin-base 0;
+}
+
+h1 {
+  font-size: $font-size-title;
 }
