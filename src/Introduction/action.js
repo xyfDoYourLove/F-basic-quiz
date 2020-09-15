@@ -2,10 +2,10 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:8080";
 
-function getUserInfo() {
-  return axios.get(`${baseUrl}/users/1600157923805`).catch((error) => {
+function getFunction(path) {
+  return axios.get(`${baseUrl}${path}`).catch((error) => {
     throw new Error(error);
   });
 }
 
-export default getUserInfo;
+export default getFunction;
