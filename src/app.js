@@ -1,15 +1,14 @@
 import "./style/index.scss";
-// import getUserInfo from "./Introduction/action";
+import getUserInfo from "./Introduction/action";
 
-// let response = {};
+const desc = document.getElementById("desc");
+const avatar = document.getElementById("avatar");
 
-// getUserInfo().then((req) => {
-//   // const response = req.data;
-// });
+const renderUserInfo = async () => {
+  const response = await getUserInfo();
+  desc.innerHTML = `my name is ${response.data.name} and this is my resume/cv`;
+  avatar.src = response.data.avatar;
+};
 
-// const header = document.getElementById("header");
+renderUserInfo().then();
 
-// header.style.setProperty("color", "red");
-
-// $("#header").style.setProperty("color", "red");
-// header.style.setProperty("color", "red");
