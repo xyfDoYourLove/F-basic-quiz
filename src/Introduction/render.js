@@ -14,6 +14,7 @@ function createDocument(year, title, details) {
           </p>
         </div>
       </div>`;
+  // TODO feedback: div，doc命名不符合语义
   const doc = new DOMParser().parseFromString(template, "text/html");
   const div = doc.querySelector(".education-container");
   return div;

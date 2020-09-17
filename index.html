@@ -10,15 +10,19 @@
     <title>Resume</title>
   </head>
   <body>
-    <main class="main" id="main">
+<!--  // TODO feedback:用了太多的id选择器-->
+  <main class="main" id="main">
       <header class="header" id="header">
         <img src="" alt="avatar" class="avatar" id="avatar" />
         <h1 class="hello" id="hello">Hello,</h1>
         <p class="desc" id="desc"></p>
       </header>
+<!--      // TODO feedback: 不建议使用hr，可以通过border去设置-->
       <hr class="split-line" id="split-line" />
-      <div class="container" id="container">
+<!--    // TODO feedback:HTML嵌套层次有点多-->
+    <div class="container" id="container">
         <div class="intro" id="intro">
+<!--          // TODO feedback:命名已经提示用Education了，paragragh不表意-->
           <h1 class="paragraph-title" id="paragraph-title">
             ABOUT ME
           </h1>

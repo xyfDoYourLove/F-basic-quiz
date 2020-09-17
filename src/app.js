@@ -2,15 +2,18 @@ import "./style/index.scss";
 import { getFunction, postFunction } from "./Introduction/action";
 import createDocument from "./Introduction/render";
 
+// TODO feedback: 建议把常量放在相应功能方法里去声明
 const descDom = document.getElementById("desc");
 const avatarDom = document.getElementById("avatar");
 const container = document.getElementById("educations");
 const introTextDom = document.getElementById("intro-text");
+// TODO feedback: 不建议定义全局变量
 let path;
 let data;
 let userId;
 
 const addUser = async (postMethod) => {
+  // TODO feedback: 没有添加的需求
   path = `/users`;
   data = {
     name: "ai lun xiao",
@@ -45,6 +48,7 @@ const addEducation = async (postMethod) => {
 const renderUserInfo = async (getMethod, desc, intro, avatar) => {
   path = `/users/${userId}`;
   const response = await getMethod(path);
+  // TODO feedback: 不建议给参数赋值
   desc.innerHTML = `my name is ${response.data.name} and this is my resume/cv`;
   intro.innerHTML = response.data.description;
   avatar.src = response.data.avatar;
@@ -58,6 +62,7 @@ const renderEducations = async (getMethod, createDom) => {
   );
 };
 
+// TODO feedback: 准备数据的逻辑应该放在后台
 addUser(postFunction).then(() => {
   addEducation(postFunction).then(() => {
     renderUserInfo(getFunction, descDom, introTextDom, avatarDom).then();

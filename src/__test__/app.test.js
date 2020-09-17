@@ -7,6 +7,7 @@ describe("addUser", () => {
     jest.resetModules();
   });
   test("postFunction should beCalled when addUser", async () => {
+    // TODO feedback: 仅仅测试mock 方法被调用的话，测试的价值感觉不大
     const response = { data: { id: "111" } };
     const mockPostFunction = jest.fn().mockReturnValue(response);
     await addUser(mockPostFunction);

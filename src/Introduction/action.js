@@ -14,4 +14,5 @@ function postFunction(path, data) {
   });
 }
 
+// TODO feedback: 命名不符合语义，应该从功能的角度去命名
 export { getFunction, postFunction };
